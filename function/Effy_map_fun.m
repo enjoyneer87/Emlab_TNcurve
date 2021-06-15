@@ -1,5 +1,5 @@
 function Effy_Map=Effy_map_fun(Input,in_power)
-%% ÀÌ¹Ì Effy_map µ¥ÀÌÅÍ°¡ Á¸ÀçÇÒ °æ¿ì ÀĞ¾îµå¸®°í ¹Ù·Î ÇÔ¼öÁ¾·á
+%% ì´ë¯¸ Effy_map ë°ì´í„°ê°€ ì¡´ì¬í•  ê²½ìš° ì½ì–´ë“œë¦¬ê³  ë°”ë¡œ í•¨ìˆ˜ì¢…ë£Œ
 skew = Input.skew;
 
 if skew == 0
@@ -29,7 +29,7 @@ d =Input.d_interval;
 mode_d = round(cos(((Input.mode_m-1)*90+45)/180*pi)*sqrt(2));
 mode_q = round(sin(((Input.mode_m-1)*90+45)/180*pi)*sqrt(2));
 
-%% //-----------------------qÃà Àü·ù µ¥ÀÌÅÍ ±¸ºĞ-----------------------//
+%% //-----------------------qì¶• ì „ë¥˜ ë°ì´í„° êµ¬ë¶„-----------------------//
 z=1;
 end_val=1;
 
@@ -52,14 +52,14 @@ for i=1:num-1
     end 
 end
 
-%//------------------ qÃà Àü·ù ¼øÀ¸·Î sorting --------------------------//
+%//------------------ qì¶• ì „ë¥˜ ìˆœìœ¼ë¡œ sorting --------------------------//
 
 ele = sortrows(ele,[mode_q*2 mode_d*1]);
 
 z=1;
 end_val=1;
 
-%//-------------------- dÃà Àü·ùµµ µ¥ÀÌÅÍ ±¸ºĞ ----------------------------//
+%//-------------------- dì¶• ì „ë¥˜ë„ ë°ì´í„° êµ¬ë¶„ ----------------------------//
 
 ele=[ele; zeros(1,4)];
 
@@ -115,10 +115,10 @@ for k=1:length(RPM)
                continue
             end
             if h ~= 1
-                data1=[total_cell{n}(h-1,:)];                       % data2ÀÇ ¾Õ data
-                data2=[total_cell{n}(h,:)];                         % torque_ref°¡ ³ÑÀ»¶§ in_powerÀÇ ¾Õµ¥ÀÌÅÍÀÎ data1°ú ¼±Çü±Ù»ç         
-                coef=(torque_ref-data1(1))/(data2(1)-data1(1));     % ¼±Çü ±Ù»ç
-                save_data(kk,:)=data1+coef*(data2-data1);           % ¼±Çü±Ù»ç data ÀúÀå
+                data1=[total_cell{n}(h-1,:)];                       % data2ì˜ ì• data
+                data2=[total_cell{n}(h,:)];                         % torque_refê°€ ë„˜ì„ë•Œ in_powerì˜ ì•ë°ì´í„°ì¸ data1ê³¼ ì„ í˜•ê·¼ì‚¬         
+                coef=(torque_ref-data1(1))/(data2(1)-data1(1));     % ì„ í˜• ê·¼ì‚¬
+                save_data(kk,:)=data1+coef*(data2-data1);           % ì„ í˜•ê·¼ì‚¬ data ì €ì¥
                 kk=kk+1;
             end
         end
@@ -151,7 +151,7 @@ for k=1:length(RPM)
     end            
 end
 
-%% Effy_map.csv ÆÄÀÏ »ı¼º
+%% Effy_map.csv íŒŒì¼ ìƒì„±
 headers = {'RPM','Torque','Imax','Phase','I_d','I_q','Lamda_d','Lamda_q'};
 if skew == 0
     csvwrite_with_headers('Output\Effy_map.csv',Effy_Map,headers);
