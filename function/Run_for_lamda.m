@@ -7,7 +7,7 @@ step = Input.steps+1;
 rpm = Input.base_rpm;
 Motion = Input.Motion_condi;
 current = sqrt(i_d^2+i_q^2);
-ini_angle=Input.initial_angle; % Initial Angle 정의
+ini_angle=Input.initial_angle;
 stack=Input.Stack*Input.Stack_Margin;
 
 if (current==0)
@@ -16,7 +16,7 @@ else
     phase = atan2(i_q,i_d)*180/pi+360*(i_q<0)+90;   % IdIq 맵을 위한 경우
 end
 
-% num_core = Input.JMAG_num_core;
+%num_core = Input.JMAG_num_core;
 
 current_path = [pwd '/'];
 current_path = strrep(current_path,'\','/');

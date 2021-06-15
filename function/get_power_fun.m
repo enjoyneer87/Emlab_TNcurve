@@ -1,4 +1,4 @@
-function [characteristic_curve Max_Torque]=get_power_fun(Input,in_power,Lamda_fd)
+function [characteristic_curve Max_Torque]=get_power_fun(Input,in_power)
 
 skew=Input.skew;           % Skew On-Off Á¤ÀÇ
 
