@@ -1,6 +1,6 @@
 function in_power=trans_fun(Input)
 
-skew=Input.skew;           % Skew On-Off 정의
+skew=Input.skew;
 floor=Input.skew_floor;    % Skew 단수 정의
 
 id_iq=Input.id_iq;
@@ -13,12 +13,12 @@ i_q = id_iq(:,2);
 if (skew==0)   % Skew 미적용 시 데이터 맵 구축
 
   %  이미 in_power 데이터가 존재할 경우 읽어드리고 바로 함수종료
-    disp('Transform Start');
+    disp('lamda d-q 변환 시작');
     
     if exist('Output\in_power.csv','file')
         in_power = csvread('Output\in_power.csv',1,0);
-        disp('in_power.csv - read');
-        disp('Transform End');
+        disp('in_power.csv - 존재');
+        disp('lamda d-q 변환 완료');
         disp(' ');
         return;
     end
@@ -59,17 +59,17 @@ if (skew==0)   % Skew 미적용 시 데이터 맵 구축
         csvwrite_with_headers('Output\in_power.csv',in_power,headers);
     end
     disp('in_power.csv - write');
-    disp('Transform End');
+    disp('lamda d-q 변환 완료');
     disp(' ');
 
 else    % Skew 적용 시의 데이터 맵 구축
     
   %  이미 in_power 데이터가 존재할 경우 읽어드리고 바로 함수종료
-    disp('Transform Skew Start');
+    disp('lamda_skew d-q 변환 시작');
     if exist('Output\in_power_skew.csv','file')
         in_power = csvread('Output\in_power_skew.csv',1,0);
         disp('in_power_skew.csv - read');
-        disp('Transform_Skew End');
+        disp('lamda_skew d-q 변환 완료');
         disp(' ');
         return;
     end
@@ -133,7 +133,7 @@ else    % Skew 적용 시의 데이터 맵 구축
     headers = {'Id','Iq','Lamda_d','Lamda_q'};
     csvwrite_with_headers('Output\in_power_skew.csv',in_power_skew,headers);
     disp('in_power_skew.csv - write');
-    disp('Transform Skew End');
+    disp('lamda_skew d-q 변환 완료');
     disp(' ');
     
     in_power=in_power_skew;        % in_power 변수를 전역변수로 전체에서 사용하기 위한 정의 / skew 미적용,적용시 모두 같은 변수로 씀
