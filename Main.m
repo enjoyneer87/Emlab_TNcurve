@@ -14,7 +14,7 @@ addpath('function\');
 Input.skew=1;                                                               % Skew 설정 적용 시 1, 미적용시 0
 Input.skew_floor=2;                                                         % Skew 단수 설정
 Input.skew_angle=5;                                                      % Skew 적용할 각도 설정
-
+d
 Input.i_s = 0.1;                                                             % id,iq 시작 전류 크기
 Input.interval = 25;                                                        % id,iq 전류 간격
 Input.d_interval = 80;                                                     % id,iq 전류 간격 보간 크기 
